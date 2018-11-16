@@ -1,25 +1,28 @@
-//Create an object for the insults
-const gramseyInsults = {};
-const numbers = [];
-for (let i = 0; i <= 10; i++){
-  numbers.push(i);
-};
+//Create an object for the insults. RamseyInsults includes insults each in an array (text, image src)...
+const gordonRamsay = {};
 
-//Get API Key for GIPHY
-const myKey = "t9uzA10qm0ohWGiPoxU43lEDXVLCcj0s"
+gordonRamsay.ramsayInsults = [];
 
-//Based on what is typed pick a randomized gif from Giphy
-gramseyInsults.formSubmit = function () {
+gordonRamsay.ramsayInsults.push({text: "<p>What are you?</p><p>An idiot sandwich</p>", gif: "assets/insult-idiot-sandwich.gif"});
+
+
+//Create layout of gif with the text on top using js.
+
+
+//Push gif and corresponding text to the ramseyInsults
+
+//Based on what is typed pick a randomized gif from ramseyInsults, and include the type value in the insult. 
+
+gordonRamsay.formSubmit = function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
+    //choose a random gif array
+
+    //from that gif array, use the src of the gif for the img src
+
+    //from that gif array, use the text to appear on the img 
     
-    //add answer to search query for Giphy
-    const answer = $("input").val();
-    const randomResult = numbers[Math.floor((Math.random() * numbers.length))];
-    console.log(randomResult);
-    const giphy = $.get(`http://api.giphy.com/v1/gifs/search?q=gordon+ramsay+${answer.toLowerCase}+food+insult&api_key=${myKey}&offset=${randomResult}`);
-    
-    //append the gif result to the div on the DOM
+    // append the gif result to the div on the DOM
     giphy.done(function(data){
       console.log(data);
       const theGif = document.createElement("img");
@@ -33,7 +36,14 @@ gramseyInsults.formSubmit = function () {
   });
 };
 
+//Create a button that appears underneath and allows you to play again. This button removes the previous input value, resets the gif/div to nothing or default state, and scrolls you back to the top of the page where the form and instructions are. 
 
-$(function () {
-  gramseyInsults.formSubmit();
-});
+//Do not allow the user to scroll down if they have not typed in anything. 
+
+//Do not allow the user to type in numbers or symbols. 
+
+//
+
+// $(function () {
+//   ramseyInsults.formSubmit();
+// });
