@@ -4,7 +4,7 @@ const gordonRamsay = {};
 gordonRamsay.ramsayInsults = [];
 
 //Making sure to use template literals to include user answers in captions
-const answer = $("input").val();
+const answer = $("input").val().toLowerCase();
 
 //Pushing items into the array
 gordonRamsay.ramsayInsults.push({
@@ -96,7 +96,7 @@ const refreshGif = function () {
   const caption = theChosenOne.text;
   
   //append the image and text on to the DOM
-  $("div").append(gifHolder, caption);
+  $(".gif-home").append(gifHolder, caption);
 };
 
 //Defining actions for submit event

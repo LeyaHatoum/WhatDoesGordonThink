@@ -6,23 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>What does Gordon think?</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
 </head>
 
 <body>
   <main>
-    <h1></h1>
+    <h1>Type in your absolute favourite dish, and see what gordon ramsay thinks!</h1>
     <form>
-      <label for="text-field">Type in your absolute favorite dish, and see what gordon ramsay thinks</label>
-      <input type="text" id="text-field">
-      <button>Tell Gordon Ramsay!</button>
+      <label for="text-field">Type your favourite dish here</label>
+      <input type="text" id="text-field" placeholder="Kentucky Fried Chicken">
+      <button>Tell Gordon Ramsay</button>
     </form>
   </main>
-  <div>
-    <!-- Place the Gordon Ramsay's reply right here -->
-    <button class="another-gif">No way! Everyone loves my dish, give me something else!</button>
-    <button class="try-again">let me try again, he’ll love my next dish!</button>
-  </div>
+  <section class="container">
+    <div class="gif-home">
+      <!-- Place the Gordon Ramsay's reply right here -->
+    </div>
+    <div class="next-steps">
+      <button class="another-gif">No way! Everyone loves my dish, tell me something else!</button>
+      <button class="try-again">let me try again, he’ll love my next dish!</button>
+    </div>
+  </section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="main.js"></script>
