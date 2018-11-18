@@ -150,6 +150,5 @@ $(function () {
 //Add background of fire
 
 //Add that you can share with twitter
-//Smooth auto scroll up and down
 //create a git ignore page
 //

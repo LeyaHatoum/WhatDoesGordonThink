@@ -17,7 +17,6 @@ $caption-color: #900000;
 }
 //-------------------------------
 body {
-  background: $background-color;
   border: 2px solid red;
   font-size: 62.5%;
 }
@@ -27,6 +26,7 @@ body {
 main {
   height: 100vh;
   width: 100%;
+  background: $background-color;
   border: 2px solid purple;
   text-align: center;
   @include flex-it();
@@ -76,7 +76,7 @@ main {
 //Buttons styling
 button {
     width: 300px;
-    height: 60px;
+    height: 80px;
     margin-bottom: 25px;
     border: none;
     background: $accent-color;
@@ -96,6 +96,8 @@ button {
 section {
   width: 100%;
   height: 100vh;
+  background: url(./assets/fire.gif) no-repeat;
+  background-size: cover;
   @include flex-it();
 
   .gif-home {
@@ -120,7 +122,6 @@ p {
   background: $caption-color;
   text-align: center;
   color: $secondary-font-color;
-  // height: 100px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -129,4 +130,5 @@ p {
   font-family: "Oswald", sans-serif;
   font-size: 2rem;
   line-height: 2.8rem;
+  text-transform: uppercase;
 }
