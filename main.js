@@ -22,7 +22,7 @@ gordonRamsay.ramsayInsults.push({
   text: `<p>${answer}? Now you're sounding deluded</p>`, 
   gif: "assets/insult-deluded.gif"
 },{
-  text: `<p>${answer} is disgusting festering mess</p>`, 
+  text: `<p>${answer} is a disgusting festering mess</p>`, 
   gif: "assets/insult-disgusting-festering-mess.gif"
 },{
   text: `<p>The ${answer} is disgusting, it's like something out of a gas station!</p>`, 
@@ -55,7 +55,7 @@ gordonRamsay.ramsayInsults.push({
   text: `<p>You deserve a kick in the nuts</p>`, 
   gif: "assets/insult-kick-in-the-nuts.gif"
 },{
-  text: `<p>The ${answer}is stinking</p>`, 
+  text: `<p>The ${answer} is stinking</p>`, 
   gif: "assets/insult-meat-is-stinking.gif"
 },{
   text: `<p>I think you need a doctor right now.</p>`, 
@@ -73,41 +73,60 @@ gordonRamsay.ramsayInsults.push({
   text: `<p>${answer} is disgusting!</p>`, 
   gif: "assets/insult-spice-and-disgusting.gif"
 },{
-  text: `<p>${answer}is a joke!</p>`, 
+  text: `<p>${answer} is a joke!</p>`, 
   gif: "assets/insult-this-is-a-joke.gif"
 },
 );
+
+const refreshGif = function () {
+  //remove previous answers 
+  $("img").remove();
+  $("p").remove();
+  
+  //choose a random gif array
+  const insults = gordonRamsay.ramsayInsults;
+  const theChosenOne = insults[Math.floor(Math.random() * insults.length)];
+  
+  //create an image element and place the chosen gif in it
+  const gifHolder = document.createElement("img");
+  const gifLocation = theChosenOne.gif;
+  gifHolder.src = gifLocation;
+  
+  //place the text as a caption
+  const caption = theChosenOne.text;
+  
+  //append the image and text on to the DOM
+  $("div").append(gifHolder, caption);
+};
 
 //Defining actions for submit event
 gordonRamsay.formSubmit = function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
-
-    //remove previous answers 
-    $("img").remove();
-    $("p").remove();
-    
-    //choose a random gif array
-    const insults = gordonRamsay.ramsayInsults;
-    const theChosenOne = insults[Math.floor(Math.random() * insults.length)];
-    
-    //create an image element and place the chosen gif in it
-    const gifHolder = document.createElement("img");
-    const gifLocation = theChosenOne.gif;
-    gifHolder.src = gifLocation;
-    
-    //place the text as a caption
-    const caption = theChosenOne.text;
-    
-    //append the image and text on to the DOM
-    $("div").append(gifHolder, caption);
+    refreshGif();
     
   });
 };
 
-//Create layout of gif with the text on top using js.
+//Defining actions for Another Gif button
+gordonRamsay.anotherGif = function () {
+  $(".another-gif").on("click", function (event) {
+    event.preventDefault();
+    refreshGif();
+  });
+};
 
-//Create a button that appears underneath and allows you to play again. This button removes the previous input value, resets the gif/div to nothing or default state, and scrolls you back to the top of the page where the form and instructions are. 
+//Defining actions for Try Again button
+gordonRamsay.tryAgain = function () {
+  $(".try-again").animate({ scrollTop: 0 }, 'fast').on("click", function (event){
+    event.preventDefault();
+    $("input").val("");
+  })
+};
+
+
+
+//Create layout of gif with the text on top using js.
 
 //Do not allow the user to scroll down if they have not typed in anything. 
 
@@ -117,4 +136,6 @@ gordonRamsay.formSubmit = function () {
 
 $(function () {
   gordonRamsay.formSubmit();
+  gordonRamsay.anotherGif();
+  gordonRamsay.tryAgain();
 });
