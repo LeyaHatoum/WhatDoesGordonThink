@@ -1,40 +1,111 @@
-//Create an object for the insults. RamseyInsults includes insults each in an array (text, image src)...
+//Creating an object for the insults and their functions. ramsayInsults includes insults each in an array [text, image src].
 const gordonRamsay = {};
 
 gordonRamsay.ramsayInsults = [];
 
-gordonRamsay.ramsayInsults.push({text: "<p>What are you?</p><p>An idiot sandwich</p>", gif: "assets/insult-idiot-sandwich.gif"});
+//Making sure to use template literals to include user answers in captions
+const answer = $("input").val();
 
+//Pushing items into the array
+gordonRamsay.ramsayInsults.push({
+  text: `<p>Look at this mess!</p>`, 
+  gif: "assets/insult-a-mess.gif"
+},
+{
+  text: `<p>I can't sink any further</p>`, 
+  gif: "assets/insult-cant-sink-further.gif"
+},
+{
+  text: `<p>Your ${answer} is so frozen it started singing "Let It Go"</p>`, 
+  gif: "assets/insult-chicken-let-it-go.gif"
+},{
+  text: `<p>${answer}? Now you're sounding deluded</p>`, 
+  gif: "assets/insult-deluded.gif"
+},{
+  text: `<p>${answer} is disgusting festering mess</p>`, 
+  gif: "assets/insult-disgusting-festering-mess.gif"
+},{
+  text: `<p>The ${answer} is disgusting, it's like something out of a gas station!</p>`, 
+  gif: "assets/insult-disgusting-sauce.gif"
+},{
+  text: `<p>${answer} is absolute dog s***.</p>`, 
+  gif: "assets/insult-dog-shit.gif"
+},{
+  text: `<p>I don't get it</p>`, 
+  gif: "assets/insult-dont-get-it.gif"
+},{
+  text: `<p>Dreadful!</p>`, 
+  gif: "assets/insult-dreadful.gif"
+},{
+  text: `<p>Have you got a drinking problem?</p>`, 
+  gif: "assets/insult-drinking-problem.gif"
+},{
+  text: `<p>${answer}? Where is the finesse?</p>`, 
+  gif: "assets/insult-finesse.gif"
+},{
+  text: `<p>Gross</p>`, 
+  gif: "assets/insult-gross.gif"
+},{
+  text: `<p>I don't like it</p>`, 
+  gif: "assets/insult-i-dont-like-it.gif"
+},{
+  text: `<p>What are you? An idiot sandwich.</p>`, 
+  gif: "assets/insult-idiot-sandwich.gif"
+},{
+  text: `<p>You deserve a kick in the nuts</p>`, 
+  gif: "assets/insult-kick-in-the-nuts.gif"
+},{
+  text: `<p>The ${answer}is stinking</p>`, 
+  gif: "assets/insult-meat-is-stinking.gif"
+},{
+  text: `<p>I think you need a doctor right now.</p>`, 
+  gif: "assets/insult-need-a-doctor.gif"
+},{
+  text: `<p>Oh, my God!</p>`, 
+  gif: "assets/insult-oh-my-god.gif"
+},{
+  text: `<p>May the Lord above not poison me. Amen.</p>`, 
+  gif: "assets/insult-prayer.gif"
+},{
+  text: `<p>I am seriously disappointed!</p>`, 
+  gif: "assets/insult-seriously-disappointed.gif"
+},{
+  text: `<p>${answer} is disgusting!</p>`, 
+  gif: "assets/insult-spice-and-disgusting.gif"
+},{
+  text: `<p>${answer}is a joke!</p>`, 
+  gif: "assets/insult-this-is-a-joke.gif"
+},
+);
 
-//Create layout of gif with the text on top using js.
-
-
-//Push gif and corresponding text to the ramseyInsults
-
-//Based on what is typed pick a randomized gif from ramseyInsults, and include the type value in the insult. 
-
+//Defining actions for submit event
 gordonRamsay.formSubmit = function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
-    //choose a random gif array
 
-    //from that gif array, use the src of the gif for the img src
-
-    //from that gif array, use the text to appear on the img 
+    //remove previous answers 
+    $("img").remove();
+    $("p").remove();
     
-    // append the gif result to the div on the DOM
-    giphy.done(function(data){
-      console.log(data);
-      const theGif = document.createElement("img");
-      const gifLocation = data.data[0].images.original.url;
-      console.log(gifLocation); 
-      console.log("TITLE:", data.data[0].title)
-      theGif.src = gifLocation;
-      $("div").append(theGif);
-    });
-
+    //choose a random gif array
+    const insults = gordonRamsay.ramsayInsults;
+    const theChosenOne = insults[Math.floor(Math.random() * insults.length)];
+    
+    //create an image element and place the chosen gif in it
+    const gifHolder = document.createElement("img");
+    const gifLocation = theChosenOne.gif;
+    gifHolder.src = gifLocation;
+    
+    //place the text as a caption
+    const caption = theChosenOne.text;
+    
+    //append the image and text on to the DOM
+    $("div").append(gifHolder, caption);
+    
   });
 };
+
+//Create layout of gif with the text on top using js.
 
 //Create a button that appears underneath and allows you to play again. This button removes the previous input value, resets the gif/div to nothing or default state, and scrolls you back to the top of the page where the form and instructions are. 
 
@@ -44,6 +115,6 @@ gordonRamsay.formSubmit = function () {
 
 //
 
-// $(function () {
-//   ramseyInsults.formSubmit();
-// });
+$(function () {
+  gordonRamsay.formSubmit();
+});
