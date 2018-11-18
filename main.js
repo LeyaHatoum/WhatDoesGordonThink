@@ -113,7 +113,10 @@ gordonRamsay.formSubmit = function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
     refreshGif();
-  });
+    document.querySelector("section").scrollIntoView({
+      behavior: "smooth"
+    });
+});
 };
 
 //Defining actions for Another Gif button
@@ -126,7 +129,11 @@ gordonRamsay.anotherGif = function () {
 //Defining actions for Try Again button
 gordonRamsay.tryAgain = function () {
   $(".try-again").on("click", function (event){
+    event.preventDefault();
     $("input").val("");
+    document.querySelector("main").scrollIntoView({
+      behavior: "smooth"
+    });
   })
 };
 
