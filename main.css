@@ -197,7 +197,8 @@ main {
     background: #dcb8cb;
     color: #f2f2f2;
     font-family: "Helvetica", sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: bold;
     text-align: center; }
 
 button {
