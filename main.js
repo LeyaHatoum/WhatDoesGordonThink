@@ -191,10 +191,19 @@ gordonRamsay.Credits = function (){
   });
 };
 
+//Just for Fun: Library taken from http://gijsroge.github.io/tilt.js/
+const vanilla = function () {
+  VanillaTilt.init(document.querySelector(".my-element"), {
+    max: 50,
+    speed: 400,
+  });
+};
+
 //Document Ready starts here
 $(function () {
   gordonRamsay.Credits();
   gordonRamsay.Error();
+  vanilla();
   gordonRamsay.formSubmit();
   gordonRamsay.anotherGif();
   gordonRamsay.tryAgain();
