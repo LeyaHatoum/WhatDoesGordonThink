@@ -25,7 +25,7 @@ const refreshGif = function () {
       text: `<p>${answer}? Now you're sounding deluded</p>`,
       gif: "assets/insult-deluded.gif"
     }, {
-      text: `<p>${answer} is a disgusting festering mess</p>`,
+      text: `<p>${answer} is a disgusting festering mess!</p>`,
       gif: "assets/insult-disgusting-festering-mess.gif"
     }, {
       text: `<p>The ${answer} is disgusting, it's like something out of a gas station!</p>`,
@@ -58,7 +58,7 @@ const refreshGif = function () {
       text: `<p>You deserve a kick in the nuts</p>`,
       gif: "assets/insult-kick-in-the-nuts.gif"
     }, {
-      text: `<p>The ${answer} is stinking</p>`,
+      text: `<p>${answer} is stinky</p>`,
       gif: "assets/insult-meat-is-stinking.gif"
     }, {
       text: `<p>I think you need a doctor right now.</p>`,
@@ -78,6 +78,9 @@ const refreshGif = function () {
     }, {
       text: `<p>${answer} is a joke!</p>`,
       gif: "assets/insult-this-is-a-joke.gif"
+    }, {
+      text: `<p>This ${answer} looks like a dog's dinner</p>`,
+      gif: "assets/insult-dogs-dinner.gif"
     },
   ];
 
@@ -137,18 +140,57 @@ gordonRamsay.tryAgain = function () {
   })
 };
 
+//Customizing Error Message for Invalid Inputs
+//BUG HERE WHERE ERROR MESSAGE ONLY SHOWS UP FIRST TIME
+gordonRamsay.Error = function () {
+
+  //Create invalid pop-up element
+  const errorMessage = document.createElement("div");
+  errorMessage.id = "notify";
+  errorMessage.style.display = "none";
+  errorMessage.className = "pop-up";
+
+  //Fill it with an image and text
+  const gordonsPic = document.createElement("img");
+  const gordonsQuote = document.createElement("p");
+  gordonsQuote.className = "quote";
+  errorMessage.append(gordonsPic, gordonsQuote);
+
+  //Append Error Message to the Form 
+  $("form").prepend(errorMessage);
+
+  //Create the event for when it's invalid so that the popup message appears
+  $("input").on("invalid", function(event){
+    event.preventDefault();
+    if (!event.target.validity.valid){
+      gordonsPic.src = "assets/gordon-ramsay.jpg";
+      gordonsQuote.textContent = "Do you know what words are? Use them.";
+      errorMessage.style.display = "flex";
+      $(this).className = "invalid";
+    }
+  });
+  
+  //Create the event for when it's valid so that the popup message hides
+  $("input").on("input", function(event){
+    if("block" === errorMessage.style.display) {
+      $(this).className = "";
+      errorMessage.style.display = "none";
+      $(".pop-up").remove();
+    }
+  });
+  
+};
+
 //Document Ready starts here
 $(function () {
+  gordonRamsay.Error();
   gordonRamsay.formSubmit();
   gordonRamsay.anotherGif();
   gordonRamsay.tryAgain();
 });
 
 
-//Do not allow the user to type in numbers or symbols. 
-
-//Add background of fire
-
-//Add that you can share with twitter
+//make responsive
+//Add that you can share on twitter
 //create a git ignore page
-//
+//Add credits

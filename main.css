@@ -134,14 +134,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 body {
-  border: 2px solid red;
   font-size: 62.5%; }
 
 main {
   height: 100vh;
   width: 100%;
   background: #f7ece1;
-  border: 2px solid purple;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,7 +166,6 @@ main {
     margin-bottom: 50px; }
   main form {
     position: relative;
-    border: 2px solid purple;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -206,7 +203,7 @@ button {
   height: 80px;
   margin-bottom: 25px;
   border: none;
-  background: #8d86c9;
+  background: #d6596e;
   font-family: "Oswald", sans-serif;
   letter-spacing: 0.05rem;
   font-size: 1.1rem;
@@ -237,7 +234,6 @@ section {
   section .gif-home {
     max-width: 600px;
     width: 100%;
-    border: 2px solid red;
     position: relative;
     margin-bottom: 25px; }
 
@@ -259,3 +255,21 @@ p {
   font-size: 2rem;
   line-height: 2.8rem;
   text-transform: uppercase; }
+
+.pop-up {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 25px; }
+
+.quote {
+  position: initial;
+  padding: 8px 15px;
+  font-size: 1.2rem;
+  line-height: 1.8rem; }
