@@ -18,6 +18,7 @@ $caption-color: #900000;
 //-------------------------------
 body {
   font-size: 62.5%;
+  position: relative;
 }
 //-------------------------------
 //Main element styling
@@ -28,6 +29,14 @@ main {
   background: $background-color;
   text-align: center;
   @include flex-it();
+  padding-bottom: 50px;
+
+  .pitchfork {
+    max-width: 50px;
+    @media all and (max-width: 500px) {
+      display: none;
+    }
+  }
 
   h1 {
     max-width: 800px;
@@ -159,13 +168,12 @@ p {
 }
 
 .pop-up {
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   width: 100%;
   max-width: 300px;
   margin-bottom: 25px;
   @media all and (max-width: 550px){
-      flex-direction: row;
       height: 100px;
     }
 }
@@ -175,8 +183,12 @@ p {
   padding: 8px 15px;
   font-size: 1.2rem;
   line-height: 1.8rem;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  background: $caption-color;
+  color: $secondary-font-color;
+  text-align: left;
   @media all and (max-width: 550px){
-      text-align: left;
       font-size: 1rem;
       line-height: 1.6rem;
     }
@@ -186,4 +198,70 @@ p {
   @media all and (max-width: 550px){
       width: 100px;
     }
+}
+//-------------------------------
+//Credit styling
+
+.credits-closed, .credits-opened {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 50px;
+}
+
+.credits-closed {
+  color: $primary-font-color;
+  background: none;
+  text-align: left;
+  padding: 0 0 30px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  text-transform: inherit;
+  font-weight: bold;
+  letter-spacing: 0.02rem;
+  &:hover {
+    color: $accent-color;
+    background: none;
+  }
+}
+
+.credits-opened {
+  display: none;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  background: $primary-font-color;
+
+  i {
+    color: $background-color;
+    font-size: 2rem;
+    padding: 10px 10px 10px 20px;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.credits {
+  display: block;
+  background: $primary-font-color;
+  color: $secondary-font-color;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  text-transform: inherit;
+  padding: 5px 10px;
+  letter-spacing: 0.02rem;
+  text-align: left;
+
+  a {
+    text-decoration: none;
+    color: $accent-color;
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
 }

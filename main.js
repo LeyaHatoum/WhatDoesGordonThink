@@ -28,7 +28,7 @@ const refreshGif = function () {
       text: `<p>${answer} is a disgusting festering mess!</p>`,
       gif: "assets/insult-disgusting-festering-mess.gif"
     }, {
-      text: `<p>The ${answer} is disgusting, it's like something out of a gas station!</p>`,
+      text: `<p>This ${answer} is disgusting, it's like something out of a gas station!</p>`,
       gif: "assets/insult-disgusting-sauce.gif"
     }, {
       text: `<p>${answer} is absolute dog s***.</p>`,
@@ -93,10 +93,11 @@ const refreshGif = function () {
 
   //remove previous answers
   $("p").remove();
-  $("img").remove();
+  $(".gif-image").remove();
 
   //create an image element and place the chosen gif in it
   const gifHolder = document.createElement("img");
+  gifHolder.className = "gif-image";
   const gifLocation = theChosenOne.gif;
   gifHolder.src = gifLocation;
 
@@ -141,7 +142,6 @@ gordonRamsay.tryAgain = function () {
 };
 
 //Customizing Error Message for Invalid Inputs
-//BUG HERE WHERE ERROR MESSAGE ONLY SHOWS UP FIRST TIME
 gordonRamsay.Error = function () {
 
   //Create invalid pop-up element
@@ -153,7 +153,7 @@ gordonRamsay.Error = function () {
   //Fill it with an image and text
   const gordonsPic = document.createElement("img");
   gordonsPic.className = "gordon";
-  const gordonsQuote = document.createElement("p");
+  const gordonsQuote = document.createElement("span");
   gordonsQuote.className = "quote";
   errorMessage.append(gordonsPic, gordonsQuote);
 
@@ -167,31 +167,35 @@ gordonRamsay.Error = function () {
       gordonsPic.src = "assets/gordon-ramsay.jpg";
       gordonsQuote.textContent = "Do you know what words are? Use them.";
       errorMessage.style.display = "flex";
-      $(this).className = "invalid";
     }
   });
   
   //Create the event for when it's valid so that the popup message hides
-  $("input").on("input", function(event){
-    if("block" === errorMessage.style.display) {
-      $(this).className = "";
-      errorMessage.style.display = "none";
-      $(".pop-up").remove();
-    }
+  $("form").on("submit", function(event){
+      event.preventDefault();
+      $(".pop-up").hide();
   });
-  
+};
+
+//Adding Credits
+gordonRamsay.Credits = function (){
+  $(".credits-closed").on("click", function(event){
+    event.preventDefault();
+    $(".credits-opened").css("display","flex");
+    $(this).hide();
+  });
+
+  $("i").on("click", function(){
+    $(".credits-closed").show();
+    $(".credits-opened").css("display","none");
+  });
 };
 
 //Document Ready starts here
 $(function () {
+  gordonRamsay.Credits();
   gordonRamsay.Error();
   gordonRamsay.formSubmit();
   gordonRamsay.anotherGif();
   gordonRamsay.tryAgain();
 });
-
-
-//make responsive
-//Add that you can share on twitter
-//create a git ignore page
-//Add credits
