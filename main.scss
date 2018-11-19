@@ -23,7 +23,7 @@ body {
 //Main element styling
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: $background-color;
   text-align: center;
@@ -39,12 +39,20 @@ main {
     letter-spacing: 0.05rem;
     text-transform: uppercase;
     margin-bottom: 50px;
+    padding: 0 5%;
+    @media all and (max-width: 550px){
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
   }
 
   form {
     position: relative;
     width: 100%;
     @include flex-it();
+    @media all and (max-width: 850px){
+      width: 90%;
+    }
   }
 
   label {
@@ -67,12 +75,17 @@ main {
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
+
+    @media all and (max-width: 850px){
+      font-size: 1.4rem;
+    }
   }
 }
 //-------------------------------
 //Buttons styling
 button {
     width: 300px;
+    max-width: 100%;
     height: 80px;
     margin-bottom: 25px;
     border: none;
@@ -88,20 +101,31 @@ button {
     &:hover {
       background: $primary-font-color;
     }
+
+    @media all and (max-width: 600px){
+      width: 100%;
+    }
 }
 //-------------------------------
 section {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: url(./assets/fire.gif) no-repeat;
   background-size: cover;
   @include flex-it();
+  flex-flow: flow-wrap;
+  text-align: center;
+  padding: 5%;
 
   .gif-home {
     max-width: 600px;
     width: 100%;
     position: relative;
     margin-bottom: 25px;
+  }
+
+  .next-steps {
+    width: 100%;
   }
 }
 //-------------------------------
@@ -127,6 +151,11 @@ p {
   font-size: 2rem;
   line-height: 2.8rem;
   text-transform: uppercase;
+  @media all and (max-width: 550px){
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      padding: 10px;
+    }
 }
 
 .pop-up {
@@ -135,6 +164,10 @@ p {
   width: 100%;
   max-width: 300px;
   margin-bottom: 25px;
+  @media all and (max-width: 550px){
+      flex-direction: row;
+      height: 100px;
+    }
 }
 
 .quote {
@@ -142,4 +175,15 @@ p {
   padding: 8px 15px;
   font-size: 1.2rem;
   line-height: 1.8rem;
+  @media all and (max-width: 550px){
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.6rem;
+    }
+}
+
+.gordon {
+  @media all and (max-width: 550px){
+      width: 100px;
+    }
 }

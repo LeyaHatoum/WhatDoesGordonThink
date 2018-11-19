@@ -152,6 +152,7 @@ gordonRamsay.Error = function () {
 
   //Fill it with an image and text
   const gordonsPic = document.createElement("img");
+  gordonsPic.className = "gordon";
   const gordonsQuote = document.createElement("p");
   gordonsQuote.className = "quote";
   errorMessage.append(gordonsPic, gordonsQuote);
