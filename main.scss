@@ -1,3 +1,4 @@
+//Import partials
 @import "partials/setup.scss";
 //-------------------------------
 //Declare variables and mixins
@@ -33,11 +34,12 @@ main {
 
   .pitchfork {
     max-width: 50px;
+    // Shake it like a polaroid picture
+
     &:hover {
       animation: shake 1s;
       animation-iteration-count: infinite;
     }
-
     @keyframes shake {
       0% { transform: translate(1px, 1px) rotate(0deg); }
       10% { transform: translate(-1px, -2px) rotate(-1deg); }
