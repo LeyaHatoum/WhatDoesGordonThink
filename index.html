@@ -1,4 +1,3 @@
-<!-- This is to indicate this is the most updated version of the project -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,18 +10,24 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="assets/favicon.png"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="See what Gordon Ramsay thinks of your dish" />
+  <meta property="og:title" content="What Does Gordon Think?" />
+  <meta property="og:description" content="See what Gordon Ramsay thinks of your dish" />
+  <meta property="og:url" content="http://leya.space/whatdoesgordonthink" />
+  <meta property="og:image" content="./assets/favicon.png" />
 </head>
 
 <body>
-  <!-- Crediting thins -->
+  <!-- Credits -->
   <button class="credits-closed">See Credits</button>
-  <div class="credits-opened">
+  <div id="credits" class="credits-opened">
     <span class="credits">Created by Leya Hatoum. All gifs and quotes are from <a href="http://www.giphy.com">Giphy.</a>
       Image retrieved from <a href="https://www.flickr.com/photos/54397539@N06/5034333273">this account on Flickr</a>.
       I do not own anything. I am not God.</span>
     <i class="fas fa-times"></i>
   </div>
-  <!-- Main content starts here -->
+  <!-- Main content -->
   <main>
     <div class="my-element" data-tilt><img class="pitchfork" src="assets/pitchfork.png" alt="devil's pitchfork"></div>
     <h1>Type in your absolute favourite dish, and see what gordon ramsay thinks!</h1>
@@ -32,9 +37,11 @@
       <button>Tell Gordon Ramsay</button>
     </form>
   </main>
-  <!-- Results content starts here -->
+  <!-- Results content -->
   <section>
     <div class="gif-home">
+      <!-- <video autoplay = "autoplay" loop = "loop" width="600">
+      </video > -->
       <!-- Place the Gordon Ramsay's reply right here -->
     </div>
     <div class="next-steps">
@@ -42,7 +49,7 @@
       <button class="try-again">How sweet, let's try again!</button>
     </div>
   </section>
-  <!-- Javascript links start here -->
+  <!-- Javascript links-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="js/vanilla-tilt.js"></script>
   <script src="main.js"></script>
