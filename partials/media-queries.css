@@ -1,0 +1,23 @@
+@media all and (max-width: 850px) {
+  form {
+    width: 90%; }
+  input {
+    font-size: 1.4rem; } }
+
+@media all and (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+    line-height: 2rem; }
+  button {
+    width: 100%; }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 10px; }
+  .pop-up {
+    height: 100px; }
+  .quote {
+    font-size: 1rem;
+    line-height: 1.6rem; }
+  .gordon {
+    width: 100px; } }
