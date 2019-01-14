@@ -155,7 +155,7 @@ main {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-bottom: 50px; }
+  padding: 0 10px 50px 10px; }
   main .pitchfork {
     max-width: 50px; }
     main .pitchfork:hover {
@@ -247,10 +247,6 @@ main {
     text-transform: uppercase;
     margin-bottom: 50px;
     padding: 0 5%; }
-    @media all and (max-width: 550px) {
-      main h1 {
-        font-size: 1.6rem;
-        line-height: 2rem; } }
   main form {
     position: relative;
     width: 100%;
@@ -267,9 +263,6 @@ main {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-    @media all and (max-width: 850px) {
-      main form {
-        width: 90%; } }
   main label {
     visibility: hidden;
     width: 0;
@@ -287,9 +280,6 @@ main {
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center; }
-    @media all and (max-width: 850px) {
-      main input {
-        font-size: 1.4rem; } }
 
 button {
   width: 300px;
@@ -309,9 +299,6 @@ button {
   transition: background 0.5s; }
   button:hover {
     background: #242038; }
-  @media all and (max-width: 600px) {
-    button {
-      width: 100%; } }
 
 section {
   width: 100%;
@@ -342,6 +329,9 @@ section {
     margin-bottom: 25px; }
   section .next-steps {
     width: 100%; }
+  section video {
+    max-width: 99.9%;
+    background: #900000; }
 
 img {
   display: block;
@@ -361,11 +351,6 @@ p {
   font-size: 2rem;
   line-height: 2.8rem;
   text-transform: uppercase; }
-  @media all and (max-width: 550px) {
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6rem;
-      padding: 10px; } }
 
 .pop-up {
   -webkit-box-orient: horizontal;
@@ -378,9 +363,6 @@ p {
   width: 100%;
   max-width: 300px;
   margin-bottom: 25px; }
-  @media all and (max-width: 550px) {
-    .pop-up {
-      height: 100px; } }
 
 .quote {
   position: initial;
@@ -392,16 +374,9 @@ p {
   background: #900000;
   color: #f2f2f2;
   text-align: left; }
-  @media all and (max-width: 550px) {
-    .quote {
-      font-size: 1rem;
-      line-height: 1.6rem; } }
 
-@media all and (max-width: 550px) {
-  .gordon {
-    width: 100px; } }
-
-.credits-closed, .credits-opened {
+.credits-closed,
+.credits-opened {
   position: absolute;
   top: 0;
   right: 0;
@@ -460,3 +435,27 @@ p {
     .credits a:hover {
       -webkit-text-decoration-line: underline;
       text-decoration-line: underline; }
+
+@media all and (max-width: 850px) {
+  form {
+    width: 90%; }
+  input {
+    font-size: 1.4rem; } }
+
+@media all and (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+    line-height: 2rem; }
+  button {
+    width: 100%; }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 10px; }
+  .pop-up {
+    height: 100px; }
+  .quote {
+    font-size: 1rem;
+    line-height: 1.6rem; }
+  .gordon {
+    width: 100px; } }
