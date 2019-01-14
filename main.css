@@ -330,7 +330,8 @@ section {
   section .next-steps {
     width: 100%; }
   section video {
-    max-width: 99.9%; }
+    max-width: 99.9%;
+    background: #900000; }
 
 img {
   display: block;

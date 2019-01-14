@@ -119,6 +119,7 @@ const refreshGif = function () {
 
   //create a video element and place the chosen meme in it
   const videoEl = document.createElement("video");
+  videoEl.setAttribute('playsinline', '');
   videoEl.autoplay = "autoplay";
   videoEl.loop = "loop";
   videoEl.width = "600";
